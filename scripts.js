@@ -31,6 +31,16 @@ function createGrid(n) {
 function changerTaille() {
   let NewTaille = document.getElementById("taille").value;
   k = document.getElementById("nbr-lignes-a-gagner").value;
+  if (k > NewTaille) {
+    alert(
+      "Le nombre de lignes à gagner ne peut pas être supérieur à la taille de la grille."
+    );
+    document.getElementById("nbr-lignes-a-gagner").value = NewTaille;
+    k = NewTaille;
+  } else {
+    k = k;
+  }
+
   n = parseInt(NewTaille);
   countStepsX = 0;
   countStepsO = 0;
@@ -59,14 +69,12 @@ document.addEventListener("click", function (event) {
       }
 
       event.target.style.backgroundColor = "#e0e0e0";
-    //   console.log("X steps: " + countStepsX);
-    //   console.log("O steps: " + countStepsO);
-    if(countStepsX == k || countStepsO == k){
+      //   console.log("X steps: " + countStepsX);
+      //   console.log("O steps: " + countStepsO);
+      if (countStepsX == k || countStepsO == k) {
         checkWin();
         // console.log("Game Over");
-
-    }
-      
+      }
 
       if (currentPlayer === X) {
         currentPlayer = O;
