@@ -42,6 +42,13 @@ document.addEventListener("click", function (event) {
     if (event.target.textContent === "") {
       event.target.textContent = currentPlayer;
       if (currentPlayer === X) {
+        event.target.style.color = "blue";
+      }
+      if (currentPlayer === O) {
+        event.target.style.color = "red";
+      }
+
+      if (currentPlayer === X) {
         currentPlayer = O;
       } else {
         currentPlayer = X;
