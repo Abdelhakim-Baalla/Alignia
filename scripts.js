@@ -10,9 +10,10 @@ function createGrid(){
 
         for(let j = 0; j < n; j++){
             grid[i][j] = '<div style="border: 1px solid black; width: 50px; height: 50px; display: inline-block; text-align: center;">0</div>';
-            if(j == n - 1) grid[i][j] += '<br>';
+           
             grille.innerHTML += grid[i][j];
         }
+        grille.style.gridTemplateColumns = `repeat(${n}, 50px)`;
     }
     // return grid;
 }
