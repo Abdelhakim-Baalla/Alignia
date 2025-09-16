@@ -1,3 +1,9 @@
+// Les joueurs
+let X = "X";
+let O = "O";
+let n = 3; 
+let currentPlayer = X;
+
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
   const grid = [];
@@ -33,6 +39,7 @@ appliqueBtn.addEventListener("click", changerTaille);
 
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("box-player")) {
-      console.log(event.target.classList);
+        event.target.textContent = currentPlayer
+    //   console.log(event.target.classList);
   }
 });
