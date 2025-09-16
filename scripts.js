@@ -19,3 +19,10 @@ function createGrid(){
 }
 
 createGrid();
+
+function changerTaille(){
+    let NewTaille = document.getElementById("taille").value;
+    n = NewTaille;
+    createGrid();
+    // console.log(NewTaille);
+}
