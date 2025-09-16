@@ -1,7 +1,7 @@
 // Les joueurs
 let X = "X";
 let O = "O";
-let n = 3; 
+let n = 3;
 let currentPlayer = X;
 
 // Fonction pour générer les grilles de jeu
@@ -38,13 +38,15 @@ let appliqueBtn = document.getElementById("appliquer");
 appliqueBtn.addEventListener("click", changerTaille);
 
 document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("box-player")) {
-        event.target.textContent = currentPlayer
-        if(currentPlayer === X){
-            currentPlayer = O;
-        }else{
-            currentPlayer = X;
-        }
+  if (event.target.classList.contains("box-player")) {
+    if (event.target.textContent === "") {
+      event.target.textContent = currentPlayer;
+      if (currentPlayer === X) {
+        currentPlayer = O;
+      } else {
+        currentPlayer = X;
+      }
+    }
     //   console.log(event.target.classList);
   }
 });
