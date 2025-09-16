@@ -40,6 +40,11 @@ appliqueBtn.addEventListener("click", changerTaille);
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("box-player")) {
         event.target.textContent = currentPlayer
+        if(currentPlayer === X){
+            currentPlayer = O;
+        }else{
+            currentPlayer = X;
+        }
     //   console.log(event.target.classList);
   }
 });
