@@ -48,6 +48,8 @@ document.addEventListener("click", function (event) {
         event.target.style.color = "red";
       }
 
+      event.target.style.backgroundColor = "#e0e0e0";
+
       if (currentPlayer === X) {
         currentPlayer = O;
       } else {
