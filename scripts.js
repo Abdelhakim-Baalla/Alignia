@@ -2,7 +2,10 @@
 let X = "X";
 let O = "O";
 let n = 3;
+let k = 3;
 let currentPlayer = X;
+let countStepsX = 0;
+let countStepsO = 0;
 
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
@@ -27,9 +30,12 @@ function createGrid(n) {
 
 function changerTaille() {
   let NewTaille = document.getElementById("taille").value;
-  let k = document.getElementById("nbr-lignes-a-gagner").value;
+  k = document.getElementById("nbr-lignes-a-gagner").value;
   n = parseInt(NewTaille);
+  countStepsX = 0;
+  countStepsO = 0;
 
+  //   console.log(k);
   createGrid(n);
   // console.log(NewTaille);
 }
@@ -39,16 +45,28 @@ appliqueBtn.addEventListener("click", changerTaille);
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("box-player")) {
+    //   console.log(k);
     if (event.target.textContent === "") {
       event.target.textContent = currentPlayer;
+
       if (currentPlayer === X) {
+        countStepsX++;
         event.target.style.color = "blue";
       }
       if (currentPlayer === O) {
+        countStepsO++;
         event.target.style.color = "red";
       }
 
       event.target.style.backgroundColor = "#e0e0e0";
+    //   console.log("X steps: " + countStepsX);
+    //   console.log("O steps: " + countStepsO);
+    if(countStepsX == k || countStepsO == k){
+        checkWin();
+        // console.log("Game Over");
+
+    }
+      
 
       if (currentPlayer === X) {
         currentPlayer = O;
@@ -59,3 +77,7 @@ document.addEventListener("click", function (event) {
     //   console.log(event.target.classList);
   }
 });
+
+function checkWin() {
+  // console.log("check win" + k);
+}
