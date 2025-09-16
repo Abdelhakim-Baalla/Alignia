@@ -73,7 +73,7 @@ document.addEventListener("click", function (event) {
       //   console.log("O steps: " + countStepsO);
       if (countStepsX == k || countStepsO == k) {
         checkWin();
-        // console.log("Game Over");
+        console.log("Game Over");
       }
 
       if (currentPlayer === X) {
@@ -82,10 +82,15 @@ document.addEventListener("click", function (event) {
         currentPlayer = X;
       }
     }
+
+    if (countStepsO + countStepsX == n * n && checkWin() != true) {
+        alert("Match nul!");
+    }
     //   console.log(event.target.classList);
   }
 });
 
 function checkWin() {
   // console.log("check win" + k);
+return true
 }
