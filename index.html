@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alignia</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="Alignia.png" type="image/x-icon">
   </head>
   <body>
     <!-- Formulaire de parametre -->
@@ -17,6 +18,23 @@
     </div>
 
     <div id="grille"></div>
+
+    <div>
+        <p>Scores:</p>
+        <div>
+            <span>X: </span>
+            <span id="X-score"></span>
+        </div>
+        <div>
+            <span>O: </span>
+            <span id="O-score"></span>
+        </div>
+    </div>
+
+    <div>
+        <button id="restart">Recommencer le jeu</button>
+        <button id="effacer-scores">Effacer les scores</button>
+    </div>
 
     <script src="scripts.js"></script>
   </body>
