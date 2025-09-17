@@ -201,3 +201,26 @@ function checkWin() {
   }
   return false;
 }
+
+let resetBtn = document.getElementById('restart');
+resetBtn.addEventListener('click', function(){
+    countStepsX = 0;
+    countStepsO = 0;
+    gameOver = false;
+    currentPlayer = X;
+    createGrid(n);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let effacerScoresBtn = document.getElementById("effacer-scores");
+  if (effacerScoresBtn) {
+    effacerScoresBtn.addEventListener("click", function () {
+      localStorage.removeItem("xScore");
+      localStorage.removeItem("oScore");
+      xScore = 0;
+      oScore = 0;
+      initScores();
+      alert('Scores effacés!');
+    });
+  }
+});
