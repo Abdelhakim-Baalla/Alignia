@@ -10,6 +10,25 @@ let gameOver = false;
 let xScore = 0;
 let oScore = 0;
 
+// Initialisation des scores avec affichage depuis LocalStorage
+if (localStorage.getItem('xScore')) {
+    xScore = parseInt(localStorage.getItem('xScore'));
+    document.getElementById('X-score').textContent= xScore;
+}else{
+    localStorage.setItem('xScore', xScore);
+    document.getElementById('X-score').textContent= xScore;
+}
+
+if (localStorage.getItem('oScore')) {
+    oScore = parseInt(localStorage.getItem('oScore'));
+    document.getElementById('O-score').textContent= oScore;
+}else{
+    localStorage.setItem('oScore', oScore);
+    document.getElementById('O-score').textContent= oScore;
+}
+
+
+
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
   let grille = document.getElementById("grille");
