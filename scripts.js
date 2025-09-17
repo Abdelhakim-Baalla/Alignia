@@ -128,7 +128,6 @@ function checkWin() {
     }
   }
 
-  // Fonction pour vérifier k symboles alignés pour un joueur
   function hasKInRow(player) {
     // horizontales
     for (let i = 0; i < n; i++) {
