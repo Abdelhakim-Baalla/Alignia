@@ -27,6 +27,15 @@ function initScores() {
     localStorage.setItem("oScore", oScore);
     document.getElementById("O-score").textContent = oScore;
   }
+
+  document.getElementById("player-turn").textContent = currentPlayer;
+  document.getElementById("player-turn-word").textContent = ' Turn';
+
+  countStepsX = 0;
+  countStepsO = 0;
+  gameOver = false;
+  currentPlayer = X;
+  createGrid(n);
 }
 
 initScores();
@@ -42,6 +51,8 @@ function createGrid(n) {
         '<div style="border: 1px solid black; width: 50px; height: 50px;" class="box-player"></div>';
     }
   }
+
+  document.getElementById("player-turn").textContent = currentPlayer;
 }
 
 createGrid(n);
@@ -75,7 +86,8 @@ function changerTaille() {
   countStepsO = 0;
   gameOver = false;
   currentPlayer = X;
-
+  document.getElementById("player-turn").textContent = currentPlayer;
+  document.getElementById("player-turn-word").textContent = ' Turn';
   createGrid(n);
 }
 
@@ -113,6 +125,9 @@ document.addEventListener("click", function (event) {
       } else {
         currentPlayer = X;
       }
+
+      document.getElementById("player-turn").textContent = currentPlayer;
+      document.getElementById("player-turn-word").textContent = ' Turn';
     }
   }
 });
@@ -188,6 +203,8 @@ function checkWin() {
     gameOver = true;
     localStorage.setItem("xScore", ++xScore);
     initScores();
+    document.getElementById("player-turn").textContent = 'X Win';
+    document.getElementById("player-turn-word").textContent = '';
     alert("X a gagné !");
     return true;
   }
@@ -195,19 +212,21 @@ function checkWin() {
     gameOver = true;
     localStorage.setItem("oScore", ++oScore);
     initScores();
+    document.getElementById("player-turn").textContent = 'O Win';
+    document.getElementById("player-turn-word").textContent = '';
     alert("O a gagné !");
     return true;
   }
   return false;
 }
 
-let resetBtn = document.getElementById('restart');
-resetBtn.addEventListener('click', function(){
-    countStepsX = 0;
-    countStepsO = 0;
-    gameOver = false;
-    currentPlayer = X;
-    createGrid(n);
+let resetBtn = document.getElementById("restart");
+resetBtn.addEventListener("click", function () {
+  countStepsX = 0;
+  countStepsO = 0;
+  gameOver = false;
+  currentPlayer = X;
+  createGrid(n);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -219,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
       xScore = 0;
       oScore = 0;
       initScores();
-      alert('Scores effacés!');
+      alert("Scores effacés!");
     });
   }
 });
