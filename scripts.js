@@ -7,6 +7,29 @@ let currentPlayer = X;
 let countStepsX = 0;
 let countStepsO = 0;
 let gameOver = false;
+let xScore = 0;
+let oScore = 0;
+
+// Initialisation des scores avec affichage depuis LocalStorage
+function initScores() {
+  if (localStorage.getItem("xScore")) {
+    xScore = parseInt(localStorage.getItem("xScore"));
+    document.getElementById("X-score").textContent = xScore;
+  } else {
+    localStorage.setItem("xScore", xScore);
+    document.getElementById("X-score").textContent = xScore;
+  }
+
+  if (localStorage.getItem("oScore")) {
+    oScore = parseInt(localStorage.getItem("oScore"));
+    document.getElementById("O-score").textContent = oScore;
+  } else {
+    localStorage.setItem("oScore", oScore);
+    document.getElementById("O-score").textContent = oScore;
+  }
+}
+
+initScores();
 
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
@@ -164,11 +187,15 @@ function checkWin() {
 
   if (hasKInRow(X)) {
     gameOver = true;
+    localStorage.setItem("xScore", ++xScore);
+    initScores();
     alert("X a gagné !");
     return true;
   }
   if (hasKInRow(O)) {
     gameOver = true;
+    localStorage.setItem("oScore", ++oScore);
+    initScores();
     alert("O a gagné !");
     return true;
   }
