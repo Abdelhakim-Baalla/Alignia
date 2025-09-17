@@ -11,23 +11,25 @@ let xScore = 0;
 let oScore = 0;
 
 // Initialisation des scores avec affichage depuis LocalStorage
-if (localStorage.getItem('xScore')) {
-    xScore = parseInt(localStorage.getItem('xScore'));
-    document.getElementById('X-score').textContent= xScore;
-}else{
-    localStorage.setItem('xScore', xScore);
-    document.getElementById('X-score').textContent= xScore;
+function initScores() {
+  if (localStorage.getItem("xScore")) {
+    xScore = parseInt(localStorage.getItem("xScore"));
+    document.getElementById("X-score").textContent = xScore;
+  } else {
+    localStorage.setItem("xScore", xScore);
+    document.getElementById("X-score").textContent = xScore;
+  }
+
+  if (localStorage.getItem("oScore")) {
+    oScore = parseInt(localStorage.getItem("oScore"));
+    document.getElementById("O-score").textContent = oScore;
+  } else {
+    localStorage.setItem("oScore", oScore);
+    document.getElementById("O-score").textContent = oScore;
+  }
 }
 
-if (localStorage.getItem('oScore')) {
-    oScore = parseInt(localStorage.getItem('oScore'));
-    document.getElementById('O-score').textContent= oScore;
-}else{
-    localStorage.setItem('oScore', oScore);
-    document.getElementById('O-score').textContent= oScore;
-}
-
-
+initScores();
 
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
@@ -185,15 +187,15 @@ function checkWin() {
 
   if (hasKInRow(X)) {
     gameOver = true;
-    xScore++;
-    document.getElementById('X-score').textContent = xScore;;
+    localStorage.setItem("xScore", ++xScore);
+    initScores();
     alert("X a gagné !");
     return true;
   }
   if (hasKInRow(O)) {
     gameOver = true;
-    oScore++;
-    document.getElementById('O-score').textContent = oScore;
+    localStorage.setItem("oScore", ++oScore);
+    initScores();
     alert("O a gagné !");
     return true;
   }
