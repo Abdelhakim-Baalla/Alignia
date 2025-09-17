@@ -6,6 +6,7 @@ let k = 3;
 let currentPlayer = X;
 let countStepsX = 0;
 let countStepsO = 0;
+let gameOver = false;
 
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
@@ -46,6 +47,11 @@ function changerTaille() {
   countStepsO = 0;
 
   //   console.log(k);
+  n = NewTaille;
+  countStepsX = 0;
+  countStepsO = 0;
+  gameOver = false;
+  currentPlayer = X;
   createGrid(n);
   // console.log(NewTaille);
 }
@@ -55,7 +61,7 @@ appliqueBtn.addEventListener("click", changerTaille);
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("box-player")) {
-    //   console.log(k);
+    if (gameOver) return;
     if (event.target.textContent === "") {
       event.target.textContent = currentPlayer;
 
@@ -71,9 +77,15 @@ document.addEventListener("click", function (event) {
       event.target.style.backgroundColor = "#e0e0e0";
       //   console.log("X steps: " + countStepsX);
       //   console.log("O steps: " + countStepsO);
-      if (countStepsX == k || countStepsO == k) {
-        checkWin();
-        console.log("Game Over");
+
+      if (checkWin()) {
+        return;
+      }
+
+      // Vérifier le match nul
+      if (countStepsO + countStepsX === n * n) {
+        alert("Match nul!");
+        return;
       }
 
       if (currentPlayer === X) {
@@ -82,15 +94,87 @@ document.addEventListener("click", function (event) {
         currentPlayer = X;
       }
     }
-
-    if (countStepsO + countStepsX == n * n && checkWin() != true) {
-        alert("Match nul!");
-    }
     //   console.log(event.target.classList);
   }
 });
 
-function checkWin() {
-  // console.log("check win" + k);
-return true
-}
+// function checkWin() {
+//   let boxes = document.getElementsByClassName("box-player");
+//   let grid = [];
+//   // Construction du tableau 2D représentant la grille
+//   for (let i = 0; i < n; i++) {
+//     grid[i] = [];
+//     for (let j = 0; j < n; j++) {
+//       grid[i][j] = boxes[i * n + j].textContent;
+//     }
+//   }
+
+//   // Fonction pour vérifier k symboles alignés pour un joueur
+//   function hasKInRow(player) {
+//     // Vérification des lignes horizontales
+//     for (let i = 0; i < n; i++) {
+//       for (let j = 0; j <= n - k; j++) {
+//         let count = 0;
+//         for (let d = 0; d < k; d++) {
+//           if (grid[i][j + d] === player) {
+//             count++;
+//           }
+//         }
+//         if (count === k) return true;
+//       }
+//     }
+
+//     // Vérification des colonnes verticales
+//     for (let j = 0; j < n; j++) {
+//       for (let i = 0; i <= n - k; i++) {
+//         let count = 0;
+//         for (let d = 0; d < k; d++) {
+//           if (grid[i + d][j] === player) {
+//             count++;
+//           }
+//         }
+//         if (count === k) return true;
+//       }
+//     }
+
+//     // Vérification des diagonales (haut gauche vers bas droite)
+//     for (let i = 0; i <= n - k; i++) {
+//       for (let j = 0; j <= n - k; j++) {
+//         let count = 0;
+//         for (let d = 0; d < k; d++) {
+//           if (grid[i + d][j + d] === player) {
+//             count++;
+//           }
+//         }
+//         if (count === k) return true;
+//       }
+//     }
+
+//     // Vérification des diagonales (bas gauche vers haut droite)
+//     for (let i = k - 1; i < n; i++) {
+//       for (let j = 0; j <= n - k; j++) {
+//         let count = 0;
+//         for (let d = 0; d < k; d++) {
+//           if (grid[i - d][j + d] === player) {
+//             count++;
+//           }
+//         }
+//         if (count === k) return true;
+//       }
+//     }
+
+//     return false;
+//   }
+
+//   if (hasKInRow(X)) {
+//     gameOver = true;
+//     alert("X a gagné !");
+//     return true;
+//   }
+//   if (hasKInRow(O)) {
+//     gameOver = true;
+//     alert("O a gagné !");
+//     return true;
+//   }
+//   return false;
+// }
