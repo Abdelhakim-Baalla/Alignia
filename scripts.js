@@ -7,6 +7,8 @@ let currentPlayer = X;
 let countStepsX = 0;
 let countStepsO = 0;
 let gameOver = false;
+let xScore = 0;
+let oScore = 0;
 
 // Fonction pour générer les grilles de jeu
 function createGrid(n) {
@@ -164,11 +166,15 @@ function checkWin() {
 
   if (hasKInRow(X)) {
     gameOver = true;
+    xScore++;
+    document.getElementById('X-score').textContent = xScore;;
     alert("X a gagné !");
     return true;
   }
   if (hasKInRow(O)) {
     gameOver = true;
+    oScore++;
+    document.getElementById('O-score').textContent = oScore;
     alert("O a gagné !");
     return true;
   }
