@@ -201,3 +201,12 @@ function checkWin() {
   }
   return false;
 }
+
+let resetBtn = document.getElementById('restart');
+resetBtn.addEventListener('click', function(){
+    countStepsX = 0;
+    countStepsO = 0;
+    gameOver = false;
+    currentPlayer = X;
+    createGrid(n);
+});
