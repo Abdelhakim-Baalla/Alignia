@@ -38,6 +38,9 @@ function initScores() {
   createGrid(n);
 }
 
+let nbrLignesK = document.getElementById("nbr-lignes-k");
+nbrLignesK.textContent = k;
+
 initScores();
 
 // Fonction pour générer les grilles de jeu
@@ -88,6 +91,7 @@ function changerTaille() {
   currentPlayer = X;
   document.getElementById("player-turn").textContent = currentPlayer;
   document.getElementById("player-turn-word").textContent = " Turn";
+  nbrLignesK.textContent = k;
   createGrid(n);
 }
 
