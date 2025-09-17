@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alignia</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="shortcut icon" href="Alignia.png" type="image/x-icon">
+    <link rel="shortcut icon" href="Alignia.png" type="image/x-icon" />
   </head>
   <body>
+    <nav>
+      <div class="scores">
+        <div>
+          <span>X: </span>
+          <span id="X-score"></span>
+        </div>
+        <div>
+          <span>O: </span>
+          <span id="O-score"></span>
+        </div>
+      </div>
+
+      <div class="header-logo">
+        <img src="Alignia.png" alt="Logo" width="50" height="50" />
+        <p>Alignia</p>
+      </div>
+
+      <div class="buttons">
+        <button id="restart"><img src="https://img.icons8.com/?size=100&id=11684&format=png&color=000000" alt=""></button>
+        <button id="effacer-scores"><img src="https://img.icons8.com/?size=100&id=8068&format=png&color=000000" alt=""></button>
+      </div>
+    </nav>
+    <div id="grille"></div>
+
     <!-- Formulaire de parametre -->
     <div>
       <label for="taille">Taille de la grille (n) : </label>
@@ -15,25 +39,6 @@
       <label for="nbr-lignes-a-gagner">Nombre de lignes à gagner : </label>
       <input type="number" id="nbr-lignes-a-gagner" value="3" min="3" />
       <button id="appliquer">Appliquer</button>
-    </div>
-
-    <div id="grille"></div>
-
-    <div>
-        <p>Scores:</p>
-        <div>
-            <span>X: </span>
-            <span id="X-score"></span>
-        </div>
-        <div>
-            <span>O: </span>
-            <span id="O-score"></span>
-        </div>
-    </div>
-
-    <div>
-        <button id="restart">Recommencer le jeu</button>
-        <button id="effacer-scores">Effacer les scores</button>
     </div>
 
     <script src="scripts.js"></script>
