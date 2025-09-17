@@ -1,56 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alignia</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="shortcut icon" href="Alignia.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="Alignia.png" type="image/x-icon">
   </head>
   <body>
-    <nav>
-      <div class="scores">
-        <div>
-          <span>X: </span>
-          <span id="X-score"></span>
+    <header>
+      <div class="header-container">
+        <div class="score-x"><span>1er Joueur :</span><span id="X-score">0</span></div>
+        <h1 class="header-logo-text">Alignia</h1>
+        <div class="score-o"><span>2ème Joueur :</span><span id="O-score">0</span></div>
+      </div>
+    </header>
+    <main>
+      <section class="game-section">
+        <div id="grille" class="grid"></div>
+        <div class="turn-indicator">
+          <span id="player-turn">X</span>
+          <span id="player-turn-word"> Turn</span>
         </div>
-        <div>
-          <span>O: </span>
-          <span id="O-score"></span>
+      </section>
+      <section class="settings-section">
+        <h2>Settings</h2>
+        <div class="setting-group">
+          <label for="taille">Taille de la grille :</label>
+          <input type="number" id="taille" value="3" />
         </div>
-      </div>
-
-      <div class="header-logo">
-        <img src="Alignia.png" alt="Logo" width="50" height="50" />
-        <p>Alignia</p>
-      </div>
-
-      <div class="buttons">
-        <button id="restart"><img src="https://img.icons8.com/?size=100&id=11684&format=png&color=000000" alt=""></button>
-        <button id="effacer-scores"><img src="https://img.icons8.com/?size=100&id=8068&format=png&color=000000" alt=""></button>
-      </div>
-    </nav>
-    <div><span id="player-turn"></span><span id="player-turn-word"> Turn</span></div>
-    <div id="grille"></div>
-
-    <!-- Formulaire de parametre -->
-    <div>
-      <label for="taille">Taille de la grille (n) : </label>
-      <input type="number" id="taille" value="3" min="3" />
-      <label for="nbr-lignes-a-gagner">Nombre de lignes à gagner : </label>
-      <input type="number" id="nbr-lignes-a-gagner" value="3" min="3" />
-      <button id="appliquer">Appliquer</button>
-    </div>
-
-    <!-- Formulaire de  choisir les symboles -->
-    <div>
-      <label for="symbole-x">Symbole du joueur 1 : </label>
-      <input type="text" id="symbole-x" value="X" />
-      <label for="symbole-o">Symbole du joueur 2 : </label>
-      <input type="text" id="symbole-o" value="O" />
-      <button id="appliquer-symboles">Appliquer les Symboles</button>
-    </div>
-
+        <div class="setting-group">
+          <label for="nbr-lignes-a-gagner"
+            >Nombre de lignes à gagner :</label
+          >
+          <input type="number" id="nbr-lignes-a-gagner" value="3" />
+        </div>
+        <button id="appliquer">Appliquer</button>
+        <div class="setting-group">
+          <label for="symbole-x">Symbole du joueur 1 :</label>
+          <input type="text" id="symbole-x" value="X" maxlength="1" />
+        </div>
+        <div class="setting-group">
+          <label for="symbole-o">Symbole du joueur 2 :</label>
+          <input type="text" id="symbole-o" value="O" maxlength="1" />
+        </div>
+        <button id="appliquer-symboles">Appliquer les Symboles</button>
+      </section>
+    </main>
+    <footer>
+      <button id="restart">Restart</button>
+      <button id="effacer-scores">Effacer Scores</button>
+    </footer>
     <script src="scripts.js"></script>
   </body>
 </html>
