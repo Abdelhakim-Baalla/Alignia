@@ -27,7 +27,19 @@ function initScores() {
     localStorage.setItem("oScore", oScore);
     document.getElementById("O-score").textContent = oScore;
   }
+
+  document.getElementById("player-turn").textContent = currentPlayer;
+  document.getElementById("player-turn-word").textContent = " Turn";
+
+  countStepsX = 0;
+  countStepsO = 0;
+  gameOver = false;
+  currentPlayer = X;
+  createGrid(n);
 }
+
+let nbrLignesK = document.getElementById("nbr-lignes-k");
+nbrLignesK.textContent = k;
 
 initScores();
 
@@ -42,6 +54,8 @@ function createGrid(n) {
         '<div style="border: 1px solid black; width: 50px; height: 50px;" class="box-player"></div>';
     }
   }
+
+  document.getElementById("player-turn").textContent = currentPlayer;
 }
 
 createGrid(n);
@@ -75,7 +89,9 @@ function changerTaille() {
   countStepsO = 0;
   gameOver = false;
   currentPlayer = X;
-
+  document.getElementById("player-turn").textContent = currentPlayer;
+  document.getElementById("player-turn-word").textContent = " Turn";
+  nbrLignesK.textContent = k;
   createGrid(n);
 }
 
@@ -113,6 +129,9 @@ document.addEventListener("click", function (event) {
       } else {
         currentPlayer = X;
       }
+
+      document.getElementById("player-turn").textContent = currentPlayer;
+      document.getElementById("player-turn-word").textContent = " Turn";
     }
   }
 });
@@ -128,7 +147,6 @@ function checkWin() {
     }
   }
 
-  // Fonction pour vérifier k symboles alignés pour un joueur
   function hasKInRow(player) {
     // horizontales
     for (let i = 0; i < n; i++) {
@@ -189,26 +207,30 @@ function checkWin() {
     gameOver = true;
     localStorage.setItem("xScore", ++xScore);
     initScores();
-    alert("X a gagné !");
+    document.getElementById("player-turn").textContent = X + " Win";
+    document.getElementById("player-turn-word").textContent = "";
+    alert(X + " a gagné !");
     return true;
   }
   if (hasKInRow(O)) {
     gameOver = true;
     localStorage.setItem("oScore", ++oScore);
     initScores();
-    alert("O a gagné !");
+    document.getElementById("player-turn").textContent = O + " Win";
+    document.getElementById("player-turn-word").textContent = "";
+    alert(O + " a gagné !");
     return true;
   }
   return false;
 }
 
-let resetBtn = document.getElementById('restart');
-resetBtn.addEventListener('click', function(){
-    countStepsX = 0;
-    countStepsO = 0;
-    gameOver = false;
-    currentPlayer = X;
-    createGrid(n);
+let resetBtn = document.getElementById("restart");
+resetBtn.addEventListener("click", function () {
+  countStepsX = 0;
+  countStepsO = 0;
+  gameOver = false;
+  currentPlayer = X;
+  createGrid(n);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -220,7 +242,47 @@ document.addEventListener("DOMContentLoaded", function () {
       xScore = 0;
       oScore = 0;
       initScores();
-      alert('Scores effacés!');
+      alert("Scores effacés!");
     });
   }
+
+  let appliquerSymboles = document.getElementById("appliquer-symboles");
+  appliquerSymboles.addEventListener("click", function () {
+    let symboleX = document.getElementById("symbole-x").value.trim();
+    let symboleO = document.getElementById("symbole-o").value.trim();
+    // console.log(symboleX.length);
+
+    if (symboleX.length != 1 || symboleO.length != 1) {
+      document.getElementById("symbole-x").value = X;
+      document.getElementById("symbole-o").value = O;
+      return alert("Just Un Caractere");
+    }
+
+    if (symboleX === symboleO) {
+      document.getElementById("symbole-x").value = X;
+      document.getElementById("symbole-o").value = O;
+      return alert("Les Deux caractere il faut etre different");
+    }
+
+    if (symboleX != X) {
+      localStorage.removeItem("xScore");
+      localStorage.setItem("xScore", 0);
+      initScores();
+    }
+
+    if (symboleO != O) {
+      localStorage.removeItem("oScore");
+      localStorage.setItem("oScore", 0);
+      initScores();
+    }
+
+    X = symboleX === "" ? "X" : symboleX;
+    O = symboleO === "" ? "O" : symboleO;
+
+    countStepsX = 0;
+    countStepsO = 0;
+    gameOver = false;
+    currentPlayer = X;
+    createGrid(n);
+  });
 });
