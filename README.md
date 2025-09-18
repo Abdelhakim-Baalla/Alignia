@@ -51,6 +51,14 @@ scripts.js          # Logique du jeu, gestion du DOM, localStorage
 - Utilisation de localStorage pour la persistance
 - Responsive design pour tous supports
 
+## Liens de référence
+
+https://www.figma.com/design/D9G8wfvC8rpbhSdqNDcorE/Alignia---design-conception?node-id=1-51&t=DnO6S6yTIpvERSPD-0
+
+https://www.notion.so/DOCUMENTATION-TECHNIQUE-ALIGNIA-27063645ae5e80888636cdefe039bdb9
+
+https://abdelhakimbaalla50.atlassian.net/jira/software/projects/TTT/boards/108?sprintStarted=true&atlOrigin=eyJpIjoiNWQ0Zjg0Y2FkOWMxNDM1NDgzMTg0MmQ4YmZiZTRlNjYiLCJwIjoiaiJ9
+
 ---
 
 © 2025 Alignia. Projet pédagogique – Tous droits réservés.
