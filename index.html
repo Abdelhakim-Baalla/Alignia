@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alignia</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="shortcut icon" href="Alignia.png" type="image/x-icon">
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/Alignia.png" type="image/x-icon">
+</head>
+<body>
     <header>
-      <div class="header-container">
-        <div class="score-x"><span>1er Joueur :</span><span id="X-score">0</span></div>
-        <h1 class="header-logo-text">Alignia</h1>
-        <div class="score-o"><span>2ème Joueur :</span><span id="O-score">0</span></div>
-      </div>
+        <div class="header-container">
+            <div class="score-x">1er Joueur (X): <span id="X-score">0</span></div>
+            <h1 class="header-logo-text">Alignia</h1>
+            <div class="score-o">2ème Joueur (O): <span id="O-score">0</span></div>
+        </div>
     </header>
+
     <main>
-      <section class="game-section">
-        <div id="grille" class="grid"></div>
-        <div class="turn-indicator">
-          <span id="player-turn"></span>
-          <span id="player-turn-word"> Turn</span>
-          <span> | </span>
-          <span id="nbr-lignes-k"></span>
-          <span>Ligne A gagner</span>
-        </div>
-      </section>
-      <section class="settings-section">
-        <h2>Settings</h2>
-        <div class="setting-group">
-          <label for="taille">Taille de la grille :</label>
-          <input type="number" id="taille" value="3" />
-        </div>
-        <div class="setting-group">
-          <label for="nbr-lignes-a-gagner"
-            >Nombre de lignes à gagner :</label
-          >
-          <input type="number" id="nbr-lignes-a-gagner" value="3" />
-        </div>
-        <button id="appliquer">Appliquer</button>
-        <div class="setting-group">
-          <label for="symbole-x">Symbole du joueur 1 :</label>
-          <input type="text" id="symbole-x" value="X" maxlength="1" />
-        </div>
-        <div class="setting-group">
-          <label for="symbole-o">Symbole du joueur 2 :</label>
-          <input type="text" id="symbole-o" value="O" maxlength="1" />
-        </div>
-        <button id="appliquer-symboles">Appliquer les Symboles</button>
-      </section>
+        <section class="game-section">
+            <div id="grille" class="grid"></div>
+            <div class="turn-indicator">
+                <span id="player-turn">X</span>
+                <span id="player-turn-word"> Turn</span> | 
+                Ligne A gagner: <span id="nbr-lignes-k">3</span>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Settings</h2>
+            <div class="setting-group">
+                <label for="taille">Taille de la grille :</label>
+                <input type="number" id="taille" value="3" min="1">
+            </div>
+            <div class="setting-group">
+                <label for="nbr-lignes-a-gagner">Nombre de lignes à gagner :</label>
+                <input type="number" id="nbr-lignes-a-gagner" value="3" min="1">
+            </div>
+            <button id="appliquer">Appliquer</button>
+
+            <div class="setting-group">
+                <label for="symbole-x">Symbole du joueur 1 :</label>
+                <input type="text" id="symbole-x" value="X" maxlength="1">
+            </div>
+            <div class="setting-group">
+                <label for="symbole-o">Symbole du joueur 2 :</label>
+                <input type="text" id="symbole-o" value="O" maxlength="1">
+            </div>
+            <button id="appliquer-symboles">Appliquer les Symboles</button>
+        </section>
     </main>
+
     <footer>
-      <button id="restart">Restart</button>
-      <button id="effacer-scores">Effacer Scores</button>
+        <button id="restart">Restart</button>
+        <button id="effacer-scores">Effacer Scores</button>
     </footer>
+
     <script src="scripts.js"></script>
-  </body>
+</body>
 </html>

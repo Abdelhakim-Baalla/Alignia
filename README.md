@@ -1,63 +1,65 @@
-# Alignia Tic Tac Toe
+# Alignia
 
-![Alignia Logo](./Alignia.png)
+![Alignia Logo](./assets/Alignia.png)
 
-## Contexte du projet
+## Contexte du Projet
 
-Alignia, start-up spécialisée dans le gaming en ligne, souhaite offrir une expérience enrichie de Tic Tac Toe. Ce projet propose un jeu dynamique où la taille de la grille (n x n) et le nombre d'alignements requis pour gagner (k) sont personnalisables, pour une expérience flexible et engageante.
+Alignia est une start-up spécialisée dans le gaming en ligne. Ce projet propose une version enrichie du Tic Tac Toe, avec une grille dynamique (n x n) et un nombre d'alignements requis pour gagner (k) personnalisables.
 
-## Fonctionnalités principales
+## Fonctionnalités
 
-- **Grille dynamique** : Taille configurable (n x n)
-- **Alignement gagnant configurable** : Nombre d'alignements (k) paramétrable
-- **Deux joueurs** : Alternance automatique, indication du joueur actif
-- **Détection automatique de victoire ou match nul**
-- **Scores persistants** : Stockage dans le localStorage
-- **Interface responsive** : Adaptée desktop, tablette, mobile
-- **Personnalisation** : Choix des symboles, configuration n et k via un menu
-- **Boutons** : Recommencer la partie, réinitialiser les scores
+- Grille configurable (taille n x n).
+- Alignement gagnant configurable (k).
+- Jeu à deux joueurs avec alternance automatique.
+- Détection de victoire ou match nul.
+- Scores persistants via localStorage.
+- Interface responsive (desktop, tablette, mobile).
+- Personnalisation des symboles des joueurs.
+- Boutons pour recommencer ou réinitialiser les scores.
 
-## Technologies utilisées
+## Technologies
 
-- **HTML5** : Structure sémantique et minimaliste
-- **CSS3** : Design moderne, responsive, flexibilité pour différentes tailles de grille
-- **JavaScript Vanilla** : Logique de jeu, gestion du DOM, persistance des données
+- HTML5 pour la structure.
+- CSS3 pour le design responsive.
+- JavaScript Vanilla pour la logique et l'interaction.
 
-## Structure du projet
+## Structure du Projet
 
-Alignia.png         # Logo ou illustration du projet
-index.html          # Structure HTML principale
-styles.css          # Styles et design responsive
-scripts.js          # Logique du jeu, gestion du DOM, localStorage
+```
+Alignia/
+├── assets/
+│   └── Alignia.png  # Logo du projet
+├── index.html       # Page principale
+├── styles.css       # Styles et responsive design
+├── scripts.js       # Logique du jeu
+└── README.md        # Documentation
+```
 
-## Organisation du code
+## Installation et Utilisation
 
-- **Modularité** : Fonctions séparées pour la logique de jeu, l'UI et la persistance
-- **Commentaires** : Explications pour faciliter la maintenance
-- **Manipulation du DOM** : Pour une interface interactive et dynamique
+1. Clonez le repository : `git clone https://github.com/Abdelhakim-Baalla/Alignia.git`.
+2. Ouvrez `index.html` dans un navigateur moderne.
+3. Configurez n, k et les symboles via les settings.
+4. Jouez ! Les scores sont sauvegardés localement.
 
-## Utilisation
+ou bien allez aux : [Alignia.app](https://alignia-seven.vercel.app/)
 
-1. Ouvrir `index.html` dans un navigateur moderne.
-2. Configurer la taille de la grille (n) et le nombre d'alignements (k) via le menu.
-3. Choisir les symboles des joueurs.
-4. Jouer en alternant les tours. Le score est affiché et persistant.
-5. Utiliser les boutons pour recommencer une partie ou réinitialiser les scores.
+## Bonnes Pratiques Implémentées
 
-## Bonnes pratiques
+- Code modulaire et commenté.
+- Séparation claire entre HTML (structure), CSS (style) et JS (logique).
+- Responsive design avec media queries.
+- Persistance des données via localStorage.
 
-- Code commenté et structuré
-- Séparation claire HTML/CSS/JS
-- Utilisation de localStorage pour la persistance
-- Responsive design pour tous supports
+## Liens de Référence
 
-## Liens de référence
+- [Figma Design](https://www.figma.com/design/D9G8wfvC8rpbhSdqNDcorE/Alignia---design-conception?node-id=1-51&t=DnO6S6yTIpvERSPD-0)
+- [Documentation Notion](https://www.notion.so/DOCUMENTATION-TECHNIQUE-ALIGNIA-27063645ae5e80888636cdefe039bdb9)
+- [Jira Board](https://abdelhakimbaalla50.atlassian.net/jira/software/projects/TTT/boards/108?sprintStarted=true&atlOrigin=eyJpIjoiNWQ0Zjg0Y2FkOWMxNDM1NDgzMTg0MmQ4YmZiZTRlNjYiLCJwIjoiaiJ9)
 
-https://www.figma.com/design/D9G8wfvC8rpbhSdqNDcorE/Alignia---design-conception?node-id=1-51&t=DnO6S6yTIpvERSPD-0
+## Contributions
 
-https://www.notion.so/DOCUMENTATION-TECHNIQUE-ALIGNIA-27063645ae5e80888636cdefe039bdb9
-
-https://abdelhakimbaalla50.atlassian.net/jira/software/projects/TTT/boards/108?sprintStarted=true&atlOrigin=eyJpIjoiNWQ0Zjg0Y2FkOWMxNDM1NDgzMTg0MmQ4YmZiZTRlNjYiLCJwIjoiaiJ9
+Contributions bienvenues ! Ouvrez une issue ou une PR pour suggestions.
 
 ---
 
