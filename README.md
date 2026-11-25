@@ -1,5 +1,7 @@
 # Alignia
 
+[Ouvrir le site](https://alignia-seven.vercel.app/) · [Logique de partie et de victoire](https://github.com/Abdelhakim-Baalla/Alignia/blob/main/scripts.js)
+
 ![Alignia Logo](./assets/Alignia.png)
 
 ## Contexte du Projet
